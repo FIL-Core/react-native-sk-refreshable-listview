@@ -1,0 +1,28 @@
+{
+  "name": "react-native-sk-refreshable-listview",
+  "version": "1.0.0",
+  "description": "Component wraps ListView, supports: 1 pull down to refresh 2 pull up to load more 3 scroll to top 4 scroll to bottom",
+  "main": "RefreshableListView.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shigebeyond/react-native-sk-refreshable-listview.git"
+  },
+  "keywords": [
+    "react-native",
+    "refreshable-list-view",
+    "pull-down-refresh",
+    "pull-up-loadmore"
+  ],
+  "dependencies": {
+    "react-native-sk-loader": "^1.0.0"
+  },
+  "author": "shigebeyond",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shigebeyond/react-native-sk-refreshable-listview/issues"
+  },
+  "homepage": "https://github.com/shigebeyond/react-native-sk-refreshable-listview#readme"
+}
