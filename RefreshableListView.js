@@ -9,8 +9,7 @@ var {
   RefreshControl
 } = React;
 
-var com = require('./common'),
-    TopButton = require('./TopButton'),
+var TopButton = require('./TopButton'),
     Loader = require('react-native-sk-loader'), // 加载器
     {width} = Dimensions.get('window');
 
@@ -63,9 +62,14 @@ var RefreshableListView = React.createClass({
     this.startLoadMore();
   },
 
+  // 是否正在加载
+  isLoading(){
+    return this.state.isRefreshing || this.state.isLoadingMore;
+  },
+
   // 加载更多/下一页数据
   startLoadMore() {
-    if (this.props.onLoadMore && ! this.isLoadingMore) {
+    if (this.props.onLoadMore && ! this.isLoading()) {
       this.state.isLoadingMore = true;
       this.props.onLoadMore().then(this.finishLoadMore, this.finishLoadMore);
     }
@@ -76,7 +80,7 @@ var RefreshableListView = React.createClass({
 
   //  刷新数据
   startRefresh() {
-    if (this.props.onRefresh && ! this.isLoadingMore) {
+    if (this.props.onRefresh && ! this.isLoading()) {
       this.setState({isRefreshing: true});
       this.props.onRefresh().then(this.finishRefresh, this.finishRefresh);
     }
@@ -163,9 +167,6 @@ var Footer = React.createClass({
 });
 
 var styles = StyleSheet.create({
-  listview:{
-    backgroundColor:com.borderColor,
-  },
   loadMore: {
     // position: 'absolute',
     width: width,
